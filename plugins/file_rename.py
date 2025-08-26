@@ -120,10 +120,8 @@ async def set_metadata(client, message):
 async def auto_rename_files(client, message):
     user_id = message.from_user.id
     firstname = message.from_user.first_name
-    is_user_admin = await is_admin(user_id)
-    if not is_user_admin and user_id not in Config.ADMIN:        
-        await message.reply_text("You are not authorized to use me!")
-        return  
+    # Admin check removed - all users can now use the bot for file renaming
+  
     
     if not os.path.isdir("Metadata"):
         os.mkdir("Metadata")   
